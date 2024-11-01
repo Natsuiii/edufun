@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('body');
             $table->text('image')->nullable();
-            $table->foreignId('author_id')->constrained();
-            $table->foreignId('category_id')->constrained();
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('view_count')->default(0);
             $table->timestamps();
         });

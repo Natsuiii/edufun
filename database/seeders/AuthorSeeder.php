@@ -17,8 +17,8 @@ class AuthorSeeder extends Seeder
             $name = $faker->name;
             $slug = Str::slug($name);
             Author::create([
-                'name' => $name, // Nama lengkap dalam bahasa Indonesia
-                'email' => $faker->unique()->email, // Email unik
+                'name' => $name,
+                'email' => $faker->unique()->email,
                 'slug' => $slug,
                 'avatar' => $avatarArray[$i],
             ]);
